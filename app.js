@@ -47,6 +47,9 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+// 在云引擎 Node.js 环境中使用自定义的环境变量
+var MY_CUSTOM_VARIABLE = process.env.MY_CUSTOM_VARIABLE;
+console.log(MY_CUSTOM_VARIABLE);
 // error handlers
 
 // 如果是开发环境，则将异常堆栈输出到页面，方便开发调试
