@@ -15,7 +15,8 @@ var config = {
 var WechatAPI = require('wechat-api');
 var api = new WechatAPI(appid,AppSecret);
 
-router.use('/', wechat(config.token).text(function(message, req, res, next) {
+//router.use('/', wechat(config.token).text(function(message, req, res, next) {
+router.use('/', wechat(config,function(message, req, res, next) {
   // message为文本内容
   // FromUserName: 'oPKu7jgOibOA-De4u8J2RuNKpZRw',
   // CreateTime: '1359125035',
