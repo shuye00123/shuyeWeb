@@ -12,7 +12,7 @@ var config = {
 };
 
 var WechatAPI = require('wechat-api');
-var api = new WechatAPI('appid,
+var api = new WechatAPI(appid,
   AppSecret);
 
 router.use('/', wechat(config.token).text(function(message, req, res, next) {
