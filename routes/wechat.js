@@ -1,15 +1,19 @@
 ﻿var router = require('express').Router();
 // 引用 wechat 库，详细请查看 https://github.com/node-webot/wechat
 var wechat = require('wechat');
+// 在云引擎 Node.js 环境中使用自定义的环境变量
+var token = process.env.token;
+var appid = process.env.appid;
+var encodingAESKey = process.env.encodingAESKey;
+var AppSecret = process.env.AppSecret;
 var config = {
-  token: MY_CUSTOM_VARIABLE.token,
-  appid: MY_CUSTOM_VARIABLE.appid,
-  encodingAESKey: MY_CUSTOM_VARIABLE.encodingAESKey
+  token: token,
+  appid: appid,
+  encodingAESKey: encodingAESKey
 };
 
 var WechatAPI = require('wechat-api');
-var api = new WechatAPI(MY_CUSTOM_VARIABLE.appid,
-  MY_CUSTOM_VARIABLE.AppSecret);
+var api = new WechatAPI(appid,AppSecret);
 
 router.use('/', wechat(config.token).text(function(message, req, res, next) {
   // message为文本内容
